@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SimpleWebFramework">
+        <wb-resource deploy-path="/" source-path="/target/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/classes"/>
+        <property name="java-output-path" value="/SimpleWebFramework/build/classes"/>
+        <property name="context-root" value="KalahaProject"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,4 @@
+<h2>Detail of Result</h2>
+<p>Id: ${result.id}</p>
+<p>Value: ${result.value}</p>
+<a href = "../">&lt;&lt; back</a>

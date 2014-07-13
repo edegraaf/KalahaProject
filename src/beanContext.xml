@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+ <bean id="player1Store" class="game.kalaha.bean.DefaultStoneHolderImpl" scope = "prototype">
+ 	<property name="owner" value="Player1" />
+ 	<property name="stoneCount" value="0" />
+ </bean>
+ <bean id="player2Store" class="game.kalaha.bean.DefaultStoneHolderImpl" scope = "prototype">
+ 	<property name="owner" value="Player2" />
+ 	<property name="stoneCount" value="0" />
+ </bean>
+ <bean id="player1Pit" class="game.kalaha.bean.DefaultStoneHolderImpl" scope = "prototype">
+ 	<property name="owner" value="Player1" />
+ 	<property name="stoneCount" value="6" />
+ </bean>
+ <bean id="player2Pit" class="game.kalaha.bean.DefaultStoneHolderImpl" scope = "prototype">
+ 	<property name="owner" value="Player2" />
+ 	<property name="stoneCount" value="6" />
+ </bean>
+ <bean id="boardBuilder" class="game.kalaha.bean.DefaultBoardBuilderImpl">
+ </bean>
+</beans>

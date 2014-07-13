@@ -1,0 +1,2 @@
+#set($layout = 'layout/jsonlayout.vm')
+{"player1id": "${player1}", "player2id": "${player2}"}

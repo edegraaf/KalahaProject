@@ -1,0 +1,98 @@
+<project name="KalahaProject" basedir=".">
+	
+	<description>
+		Build file for the Kalaha project
+    </description>
+  	
+	<target name="eclipsebuild">
+		<eclipse.incrementalBuild project="KalahaProject" kind="incremental"/>
+	</target>
+	
+	<target name="build" depends="buildinternal">
+	</target>
+	<target name="buildinternal">	
+		<property name="env" value="dev"/>
+		<property file="./${env}.build.properties" />
+		<property file="./build.properties" />
+		<property name="myproject" value="${ant.project.name}" />
+
+		<echo message="Starting build for project ${ant.project.name} and environment ${env}"/>
+		
+		<eclipse.incrementalBuild project="KalahaProject" kind="incremental"/>
+		
+		<mkdir dir="target/classes"/>
+		<mkdir dir="target/WebContent"/>
+		<eclipse.refreshLocal resource="KalahaProject/build" depth="infinite"/>
+		<eclipse.refreshLocal resource="KalahaProject/WebContent" depth="infinite"/>
+		
+		<!-- Copy the core classes -->
+		<copy todir="./target/classes">
+	  	    <fileset dir="./build/classes">
+	  	    	<exclude name="**/log4j.xml"/>
+	  	    </fileset>
+	  	</copy>
+		
+	  	<!-- Copy the original webapp -->
+	  	<copy todir="./target/WebContent">
+	  	    <fileset dir="./WebContent" >
+	  	    	<exclude name="**/web.xml" />
+	  	    </fileset>
+	  	</copy>
+	 
+		<tstamp>
+			<format property="currenttime" pattern="dd-MM-yyyy kk:mm" />
+		</tstamp>
+		
+		<!-- Process and copy resources that need values from property file -->
+	  	<copy todir="./target/classes">
+	  		<fileset dir="./build/classes">
+	  	    	<include name="**/log4j.xml" />
+	  	    </fileset>
+	  		<filterset onmissingfiltersfile="ignore">
+	  			<filtersfile file="../${ant.project.name}/${env}.build.properties"/>
+	  			<filtersfile file="../${ant.project.name}/build.properties"/>
+	  			<filtersfile file="../${myproject}/${env}.build.properties"/>
+	  			<filtersfile file="../${myproject}/build.properties"/>
+			</filterset>
+	  	</copy>
+		<echo message="${myproject}"></echo>
+	  	<copy todir="./target/WebContent">
+	  		<fileset dir="./WebContent">
+	  	    	<include name="**/web.xml" />
+	  	    </fileset>
+	  		<filterset onmissingfiltersfile="ignore">
+	  			<filtersfile file="../${ant.project.name}/${env}.build.properties"/>
+	  			<filtersfile file="../${ant.project.name}/build.properties"/>
+	  			<filtersfile file="../${myproject}/${env}.build.properties"/>
+	  			<filtersfile file="../${myproject}/build.properties"/>
+			</filterset>
+	  	</copy>
+		<echo message="web xml copied"></echo>
+		
+		<eclipse.refreshLocal resource="KalahaProject/target" depth="infinite"/>
+	</target>
+	
+	<target name="clean" description="clean up" >
+		<eclipse.incrementalBuild project="KalahaProject" kind="clean"/>
+  		<delete dir="./target"/>
+		<delete dir="./docs"/>
+		<eclipse.refreshLocal resource="KalahaProject" depth="infinite"/>
+	</target>
+	
+	<target name="apidoc" description="generate api docs">
+		<delete dir="./docs"/>
+		<javadoc packagenames="game.kalaha.*"
+		           sourcepath="./src"
+		           destdir="./docs/api"
+		           author="true"
+		           version="true"
+		           use="true"
+		           windowtitle="Kalaha Project API">
+		    <doctitle><![CDATA[<h1>Kalaha Project API</h1>]]></doctitle>
+		    <bottom><![CDATA[<i>Copyright &#169; 2014 Edgar de Graaf. All Rights Reserved.</i>]]></bottom>
+		    <link href="http://docs.oracle.com/javase/7/docs/api/"/>
+		  </javadoc>
+		  <eclipse.refreshLocal resource="KalahaProject" depth="infinite"/>
+	</target>
+	
+</project>

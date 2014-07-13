@@ -1,0 +1,2 @@
+#set($layout = 'layout/jsonlayout.vm')
+{"hasturn": "${hasturn}", "gamestatus": "${gamestatus}"}

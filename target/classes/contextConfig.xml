@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
+	
+  <context:annotation-config />
+
+  <bean id="velocityEngine" class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+  	<property name="resourceLoaderPath" value="/templates"/>
+  </bean>
+  
+  <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="cache" value="true" />
+        <property name="prefix" value="content/" />
+        <property name="layoutUrl" value="layout/default.vm"/>
+        <property name="suffix" value=".vm" />
+  </bean>
+  
+  <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath">
+            <value>/WEB-INF/templates/</value>
+        </property>
+        <property name="velocityProperties">
+        	<props>
+        		<prop key = "velocimacro.library">layout/macro.vm</prop>
+				<prop key = "velocimacro.library.autoreload">true</prop>
+			</props>
+		</property>
+    </bean>
+  
+  <bean name="gameService" class="game.kalaha.service.GameService">
+ </bean>
+ 
+ <bean name="controller" class="game.kalaha.controller.GameController">
+ </bean>
+ 
+ <bean name="user"  class="game.kalaha.hbm.User" scope="session"> 
+ 	<aop:scoped-proxy/>
+ </bean>
+</beans>

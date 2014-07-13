@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="game.kalaha.hbm">
+    <class name="Game" table="GAMES">
+    	<composite-id name = "competitors" class="Competitors"> 
+    		<key-property name="player1Id" column="I_PLAYER1_ID"/> 
+    		<key-property name="player2Id" column="I_PLAYER2_ID"/> 
+    	</composite-id>
+        <property name="pit1_1" column="I_PIT_1_1"/>
+        <property name="pit1_2" column="I_PIT_1_2"/>
+        <property name="pit1_3" column="I_PIT_1_3"/>
+        <property name="pit1_4" column="I_PIT_1_4"/>
+        <property name="pit1_5" column="I_PIT_1_5"/>
+        <property name="pit1_6" column="I_PIT_1_6"/>
+        <property name="store1" column="I_STORE_1"/>
+        <property name="pit2_1" column="I_PIT_2_1"/>
+        <property name="pit2_2" column="I_PIT_2_2"/>
+        <property name="pit2_3" column="I_PIT_2_3"/>
+        <property name="pit2_4" column="I_PIT_2_4"/>
+        <property name="pit2_5" column="I_PIT_2_5"/>
+        <property name="pit2_6" column="I_PIT_2_6"/>
+        <property name="store2" column="I_STORE_2"/>
+        <property name="turnP1" column="B_TURN_P1"/>
+    </class>
+
+</hibernate-mapping>

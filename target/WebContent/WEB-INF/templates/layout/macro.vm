@@ -1,0 +1,36 @@
+#macro( stone $name $top $left )
+	<div name = "${name}" id = "${name}" style = "position:absolute;top:${top}px;left:${left}px;visibility:hidden;">
+		<img src = "img/stone.png"/>
+	</div>
+#end
+
+#macro( stoneholder $name $top $left )
+	<div id = "${name}" style = "position:absolute;top:${top}px;left:${left}px;"></div>
+#end
+
+#macro( loginfields )
+	<input type = "text" name = "username" id = "username"/><br/>
+	<input type = "password" name = "password" id = "password"/><br/>
+#end
+
+#macro( loginbuttons )
+	<input type = "submit" name = "login" id = "login" value = "Login"/>
+#end
+
+#macro( errormsg $msg )
+	<div name = "errormsg" id = "errormsg" style = "color:red">$!msg</div>
+#end
+
+#macro( clickarea $playNr $boxNr $top $left )
+	<div onclick = "clickBox(${playNr}, ${boxNr})" 
+	style = "position:absolute;width:100px;height:100px;top:${top}px;left:${left}px;z-index:100;"></div>
+#end
+
+#macro( gamestatus )
+	<div style = "position:absolute;width:400px;top:0px;left:620px;text-align:right;">
+		<b>Username: </b><span id = "username">$!username</span>
+		<b>Turn: </b><span id = "turnstatus">Yes</span>
+		<b>Status: </b><span id = "winstatus">Undecided</span>
+	</div>
+#end
+	
