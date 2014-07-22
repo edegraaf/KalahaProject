@@ -19,7 +19,7 @@
       webuser
    </property>
    <property name="hibernate.connection.password">
-     givepswd
+     kA1ah!
    </property>
 
    <mapping resource="User.hbm.xml"/>

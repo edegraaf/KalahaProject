@@ -1,6 +1,6 @@
 <script>
 	var prevTurn = false;
-	var gameStatus = 99;
+	var gameStatus = "UNDECIDED";
 	
 	function constructPit(idStr, stoneCount){
 		jQuery( "#" + idStr ).empty();

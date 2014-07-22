@@ -9,7 +9,7 @@ Furthermore, to use the web project you will need to:
 1.) Load KalahaProject/sql/mysql_tables.sql into the database
 2.) Change jdbc settings in  KalahaProject/src/hibernate.cfg.xml
 3.) Add jdbc drivers to KalahaProject/WebContent/WEB-INF/lib/ (if needed)
-4.) Rerun ant build.xml
+4.) Rerun Maven Install on pom.xml
 
 In Chrome you can go to http://localhost:8080/KalahaProject/ and login with username player1 and password player1.
 Using another browser in Incognito mode, you can play player2 on the same computer (username player2 and password player2). 
