@@ -6,10 +6,11 @@ The game of Kalaha implemented as a web project. Uses velocity, hibernate, JSON,
 An implementation of the Kalaha game as a web project. The project can be loaded into Eclipse and 
 if needed the maven build script can be used to compile the project.
 Furthermore, to use the web project you will need to:
-1.) Load KalahaProject/sql/mysql_tables.sql into the database
-2.) Change jdbc settings in  KalahaProject/src/hibernate.cfg.xml
-3.) Add jdbc drivers to KalahaProject/WebContent/WEB-INF/lib/ (if needed)
-4.) Rerun Maven Install on pom.xml
+
+1. Load KalahaProject/sql/mysql_tables.sql into the database
+2. Change jdbc settings in  KalahaProject/src/hibernate.cfg.xml
+3. Add jdbc drivers to KalahaProject/WebContent/WEB-INF/lib/ (if needed)
+4. Rerun Maven Install on pom.xml
 
 In Chrome you can go to http://localhost:8080/KalahaProject/ and login with username player1 and password player1.
 Using another browser in Incognito mode, you can play player2 on the same computer (username player2 and password player2). 
